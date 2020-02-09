@@ -1,20 +1,17 @@
-import * as firebase from "firebase";
+interface firebaseConfig {
+    authDomain: string;
+    apiKey: string;
+    databaseURL: string;
+    projectId: string;
+}
 
-const config = {
-    apiKey: process.env.FIREBASE_APIKEY,
-    authDomain: process.env.FIREBASE_AUTHDOMAIN,
-    databaseUrl: process.env.FIREBASE_DATABASEURL,
-    projectId: process.env.FIREBASE_PROJECTID,
-    storageBucket: process.env.FIREBASE_STORAGEBUCKET,
-    clientId: process.env.FIREBASE_CLIENTID
+export const config: firebaseConfig = {
+    apiKey: process.env.REACT_APP_FIREBASE_APIKEY ? process.env.REACT_APP_FIREBASE_APIKEY : "",
+    authDomain: process.env.REACT_APP_FIREBASE_AUTHDOMAIN ? process.env.REACT_APP_FIREBASE_AUTHDOMAIN : "",
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASEURL ? process.env.REACT_APP_FIREBASE_DATABASEURL : "",
+    projectId: process.env.REACT_APP_FIREBASE_PROJECTID ? process.env.REACT_APP_FIREBASE_PROJECTID : ""
 };
 
-firebase.initializeApp(config);
-const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
-const firebaseAuth = (provider: firebase.auth.AuthProvider) => firebase.auth().signInWithPopup(provider);
-const database = firebase.database().ref();
 
-export const authRef = firebase.auth();
-export const loginGoogle = () => firebaseAuth(googleAuthProvider);
 
 
