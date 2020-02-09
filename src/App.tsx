@@ -1,7 +1,9 @@
 import React from 'react';
-import {FirestoreCollection, FirestoreProvider} from "@react-firebase/firestore";
+import { FirestoreCollection, FirestoreProvider } from "@react-firebase/firestore";
 import { config } from "./config/firebase";
 import firebase from "firebase";
+
+
 
 const App = () => {
   return (

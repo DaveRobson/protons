@@ -1,3 +1,5 @@
+import firebase from "firebase"
+
 interface firebaseConfig {
     authDomain: string;
     apiKey: string;
@@ -12,6 +14,7 @@ export const config: firebaseConfig = {
     projectId: process.env.REACT_APP_FIREBASE_PROJECTID ? process.env.REACT_APP_FIREBASE_PROJECTID : ""
 };
 
-
+const app = firebase.initializeApp(config);
+export const db = firebase.firestore(app);
 
 
