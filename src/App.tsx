@@ -1,21 +1,15 @@
 import React from 'react';
-import { FirestoreCollection, FirestoreProvider } from "@react-firebase/firestore";
-import { config } from "./config/firebase";
-import firebase from "firebase";
-
-
+import {Provider} from "react-redux";
+import configureStore from "./state";
+import UsersList from "./components/UsersList";
 
 const App = () => {
-  return (
-    <FirestoreProvider {...config} firebase={firebase}>
-      <h1>Firebase test</h1>
-      <FirestoreCollection path="/users/" limit={1}>
-        {d => {
-          return d.isLoading ? "Loading" : <pre>{JSON.stringify(d.value)}</pre>;
-        }}
-      </FirestoreCollection>
+  const store = configureStore({users: { data: [], loading: false}});
 
-    </FirestoreProvider>
+  return (
+    <Provider store={store}>
+      <UsersList />
+    </Provider>
   );
 };
 

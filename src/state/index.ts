@@ -1,8 +1,6 @@
-import { applyMiddleware, combineReducers, createStore } from "redux"
-import { firestoreReducer } from "react-redux-firebase";
-import { combineEpics, createEpicMiddleware } from "redux-observable"
-import { User } from "./ducks/users/types"
-import { reducers, epics } from "./ducks"
+import {applyMiddleware, createStore} from "redux"
+import {combineEpics, createEpicMiddleware} from "redux-observable"
+import {epics, reducers} from "./ducks"
 
 export interface ProtonsState {
   [key: string]: any
@@ -20,7 +18,7 @@ export default function configureStore(initialState: ProtonsState = {}) {
     rootReducer,
     initialState,
     applyMiddleware(epicMiddleware)
-  )
+  );
 
   epicMiddleware.run(rootEpic);
 
