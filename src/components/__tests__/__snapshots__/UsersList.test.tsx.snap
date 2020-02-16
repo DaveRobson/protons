@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UsersList /> unit test should render user list items 1`] = `
+<UsersList>
+  <button
+    onClick={[Function]}
+  >
+    Get Users
+  </button>
+  <br />
+  <div
+    id="details"
+    key="david@davidrobson.co.uk"
+  >
+    <label>
+      Firstname: 
+      David
+    </label>
+    <br />
+    <label>
+      Lastname: 
+      robson
+    </label>
+    <br />
+    <label>
+      Email: 
+      david@davidrobson.co.uk
+    </label>
+  </div>
+</UsersList>
+`;
