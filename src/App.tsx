@@ -1,10 +1,10 @@
-import React from 'react';
-import {Provider} from "react-redux";
+import React from "react";
+import { Provider } from "react-redux";
 import configureStore from "./state";
 import UsersList from "./components/UsersList";
 
-const App = () => {
-  const store = configureStore({users: { data: [], loading: false}});
+const App = (): React.ReactElement => {
+  const store = configureStore({ users: { data: [], loading: false } });
 
   return (
     <Provider store={store}>

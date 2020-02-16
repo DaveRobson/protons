@@ -1,16 +1,14 @@
-import {Action} from "redux"
-import {REQUEST_USERS, REQUEST_USERS_SUCCESS, User} from "./types"
+import { REQUEST_USERS, REQUEST_USERS_SUCCESS, User } from "./types";
+import { RequestSuccessAction } from "./actions";
 
-interface UserAction extends Action {
-  data: User[]
-}
-
-export default (state: { data: User[], loading: boolean} = {data: [], loading: false}, action: UserAction) => {
+export default (
+  state: { data: User[]; loading: boolean } = { data: [], loading: false },
+  action: RequestSuccessAction
+): { data: User[]; loading: boolean } => {
   switch (action.type) {
     case REQUEST_USERS:
       return {
         ...state,
-        data: action.data,
         loading: true
       };
     case REQUEST_USERS_SUCCESS:

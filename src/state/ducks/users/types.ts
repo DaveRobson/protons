@@ -9,11 +9,9 @@ export interface User {
   email: string;
 }
 
-
 export {
   REQUEST_USERS,
   REQUEST_USERS_PENDING,
   REQUEST_USERS_SUCCESS,
   REQUEST_USERS_FAILURE
-}
-
+};
